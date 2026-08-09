@@ -1,0 +1,28 @@
+[
+  {"id": "tc_001", "prompt": "What is the capital of France? Return ONLY the city name.", "expected_output": "Paris", "system_prompt": "You are a concise factual assistant."},
+  {"id": "tc_002", "prompt": "What is 15 + 27? Return ONLY the number.", "expected_output": "42", "system_prompt": "You are a math helper."},
+  {"id": "tc_003", "prompt": "What is the boiling point of water at sea level in Celsius? Return ONLY the number.", "expected_output": "100", "system_prompt": "You are a science assistant."},
+  {"id": "tc_004", "prompt": "Spell the word 'NECESSARY' in all uppercase.", "expected_output": "NECESSARY", "system_prompt": "You are a text formatter."},
+  {"id": "tc_005", "prompt": "What primary color is formed by mixing blue and yellow?", "expected_output": "Green", "system_prompt": "You are a helpful assistant."},
+  {"id": "tc_006", "prompt": "What planet is known as the Red Planet? Return ONLY the planet name.", "expected_output": "Mars", "system_prompt": "You are an astronomy helper."},
+  {"id": "tc_007", "prompt": "Translate 'Hello' to Spanish. Return ONLY the translated word.", "expected_output": "Hola", "system_prompt": "You are a translator."},
+  {"id": "tc_008", "prompt": "What is 100 divided by 4? Return ONLY the number.", "expected_output": "25", "system_prompt": "You are a math helper."},
+  {"id": "tc_009", "prompt": "What element has the chemical symbol 'O'?", "expected_output": "Oxygen", "system_prompt": "You are a chemistry assistant."},
+  {"id": "tc_010", "prompt": "How many days are in a leap year? Return ONLY the number.", "expected_output": "366", "system_prompt": "You are a calendar expert."},
+  {"id": "tc_011", "prompt": "What is the chemical formula for table salt?", "expected_output": "NaCl", "system_prompt": "You are a science helper."},
+  {"id": "tc_012", "prompt": "What is the opposite of 'hot'? Return ONLY one word.", "expected_output": "Cold", "system_prompt": "You are a vocabulary assistant."},
+  {"id": "tc_013", "prompt": "What is 7 multiplied by 8? Return ONLY the number.", "expected_output": "56", "system_prompt": "You are a math helper."},
+  {"id": "tc_014", "prompt": "Which ocean is the largest on Earth? Return ONLY the ocean name.", "expected_output": "Pacific Ocean", "system_prompt": "You are a geography expert."},
+  {"id": "tc_015", "prompt": "Convert 0 degrees Celsius to Fahrenheit. Return ONLY the number.", "expected_output": "32", "system_prompt": "You are a physics assistant."},
+  {"id": "tc_016", "prompt": "What is the largest mammal on Earth?", "expected_output": "Blue Whale", "system_prompt": "You are a biology expert."},
+  {"id": "tc_017", "prompt": "What is the square root of 81? Return ONLY the number.", "expected_output": "9", "system_prompt": "You are a math helper."},
+  {"id": "tc_018", "prompt": "Which continent is the South Pole located on?", "expected_output": "Antarctica", "system_prompt": "You are a geography assistant."},
+  {"id": "tc_019", "prompt": "What is the opposite of 'heavy'? Return ONLY one word.", "expected_output": "Light", "system_prompt": "You are a language helper."},
+  {"id": "tc_020", "prompt": "How many sides does a hexagon have? Return ONLY the number.", "expected_output": "6", "system_prompt": "You are a geometry assistant."},
+  {"id": "tc_021", "prompt": "What currency is used in Japan? Return ONLY the currency name.", "expected_output": "Yen", "system_prompt": "You are a financial helper."},
+  {"id": "tc_022", "prompt": "What gas do plants absorb during photosynthesis?", "expected_output": "Carbon dioxide", "system_prompt": "You are a botany assistant."},
+  {"id": "tc_023", "prompt": "What is 50 percent of 200? Return ONLY the number.", "expected_output": "100", "system_prompt": "You are a math helper."},
+  {"id": "tc_024", "prompt": "Who wrote 'Romeo and Juliet'? Return ONLY the full name.", "expected_output": "William Shakespeare", "system_prompt": "You are a literature expert."},
+  {"id": "tc_025", "prompt": "What is the capital of Japan? Return ONLY the city name.", "expected_output": "Tokyo", "system_prompt": "You are a geography assistant."}]
+
+  
