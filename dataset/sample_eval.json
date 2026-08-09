@@ -23,6 +23,32 @@
   {"id": "tc_022", "prompt": "What gas do plants absorb during photosynthesis?", "expected_output": "Carbon dioxide", "system_prompt": "You are a botany assistant."},
   {"id": "tc_023", "prompt": "What is 50 percent of 200? Return ONLY the number.", "expected_output": "100", "system_prompt": "You are a math helper."},
   {"id": "tc_024", "prompt": "Who wrote 'Romeo and Juliet'? Return ONLY the full name.", "expected_output": "William Shakespeare", "system_prompt": "You are a literature expert."},
-  {"id": "tc_025", "prompt": "What is the capital of Japan? Return ONLY the city name.", "expected_output": "Tokyo", "system_prompt": "You are a geography assistant."}]
+  {"id": "tc_025", "prompt": "What is the capital of Japan? Return ONLY the city name.", "expected_output": "Tokyo", "system_prompt": "You are a geography assistant."},
+
+  {"id": "tc_026", "prompt": "Write a Python function `is_even(n)` that returns `True` if `n` is even and `False` otherwise. Return ONLY valid Python code.", "expected_output": "def is_even(n):\n    return n % 2 == 0", "system_prompt": "You are a Python programming assistant."},
+  {"id": "tc_027", "prompt": "If a train travels at 60 mph for 2.5 hours, how many miles does it cover? Return ONLY the calculated number.", "expected_output": "150", "system_prompt": "You are a math problem solver."},
+  {"id": "tc_028", "prompt": "Summarize this in under 10 words: 'Artificial intelligence is rapidly transforming industries worldwide by automating repetitive tasks and driving efficiency.'", "expected_output": "AI transforms industries by automating tasks and improving efficiency.", "system_prompt": "You are a summarization tool."},
+  {"id": "tc_029", "prompt": "Convert 5 miles to kilometers (1 mile = 1.60934 km). Round to 2 decimal places.", "expected_output": "8.05", "system_prompt": "You are a unit converter."},
+  {"id": "tc_030", "prompt": "Extract the email address from this text: 'Please send your resume to contact_user@example.com before Friday.' Return ONLY the email.", "expected_output": "contact_user@example.com", "system_prompt": "You are an information extraction assistant."},
+  {"id": "tc_031", "prompt": "Write a SQL query to select all records from a table named `users` where `age` is greater than 18. Return ONLY SQL.", "expected_output": "SELECT * FROM users WHERE age > 18;", "system_prompt": "You are a SQL database expert."},
+  {"id": "tc_032", "prompt": "Sort the following list of numbers in ascending order: [42, 12, 88, 3, 27]. Return ONLY a JSON list.", "expected_output": "[3, 12, 27, 42, 88]", "system_prompt": "You are a data processing tool."},
+  {"id": "tc_033", "prompt": "What is the derivative of f(x) = x^2 with respect to x? Return ONLY the expression.", "expected_output": "2x", "system_prompt": "You are a calculus tutor."},
+  {"id": "tc_034", "prompt": "Convert the string '12345' into an integer in Python and multiply it by 2. Return ONLY the code.", "expected_output": "int('12345') * 2", "system_prompt": "You are a coding helper."},
+  {"id": "tc_035", "prompt": "Identify the grammatical error in this sentence: 'She don't like apples.' Return a corrected sentence.", "expected_output": "She doesn't like apples.", "system_prompt": "You are a grammar proofreader."},
+  {"id": "tc_036", "prompt": "A store offers a 20% discount on a $80 jacket. What is the final price? Return ONLY the number.", "expected_output": "64", "system_prompt": "You are a retail math assistant."},
+  {"id": "tc_037", "prompt": "Translate 'Where is the nearest train station?' into French.", "expected_output": "Où se trouve la gare la plus proche ?", "system_prompt": "You are a translation assistant."},
+  {"id": "tc_038", "prompt": "Find the median of this dataset: 5, 2, 9, 1, 7. Return ONLY the median number.", "expected_output": "5", "system_prompt": "You are a statistics helper."},
+  {"id": "tc_039", "prompt": "Write a regex pattern to match a standard 10-digit US phone number formatted as XXX-XXX-XXXX.", "expected_output": "^\\d{3}-\\d{3}-\\d{4}$", "system_prompt": "You are a regex specialist."},
+  {"id": "tc_040", "prompt": "Convert the binary number 10101 to decimal. Return ONLY the decimal integer.", "expected_output": "21", "system_prompt": "You are a computer science tutor."},
+  {"id": "tc_041", "prompt": "Write a 1-sentence explanation of what a REST API is.", "expected_output": "A REST API is an architectural style for providing standards between computer systems on the web to make data exchange easy.", "system_prompt": "You are a software engineering teacher."},
+  {"id": "tc_042", "prompt": "Calculate the area of a circle with a radius of 7 meters. (Use pi = 3.14159). Round to 2 decimal places.", "expected_output": "153.94", "system_prompt": "You are a geometry calculator."},
+  {"id": "tc_043", "prompt": "Extract the domain name from the URL 'https://subdomain.workspace.org/path/page.html'. Return ONLY the domain.", "expected_output": "subdomain.workspace.org", "system_prompt": "You are a URL parser."},
+  {"id": "tc_044", "prompt": "Given `items = ['a', 'b', 'c']`, write a Python snippet to reverse the list in-place.", "expected_output": "items.reverse()", "system_prompt": "You are a Python programming assistant."},
+  {"id": "tc_045", "prompt": "What HTTP status code represents 'Not Found'? Return ONLY the 3-digit integer.", "expected_output": "404", "system_prompt": "You are a web dev assistant."},
+  {"id": "tc_046", "prompt": "If a shirt costs $25 and sales tax is 8%, what is the total sales tax amount? Return ONLY the calculated value.", "expected_output": "2", "system_prompt": "You are a math helper."},
+  {"id": "tc_047", "prompt": "Convert the JSON string `{\"a\": 1, \"b\": 2}` to a Python dictionary snippet using the built-in json module.", "expected_output": "json.loads('{\"a\": 1, \"b\": 2}')", "system_prompt": "You are a Python expert."},
+  {"id": "tc_048", "prompt": "What is the capital of Australia? Return ONLY the city name.", "expected_output": "Canberra", "system_prompt": "You are a geography helper."},
+  {"id": "tc_049", "prompt": "Write a Python one-liner list comprehension to produce squares of numbers from 0 to 4.", "expected_output": "[x**2 for x in range(5)]", "system_prompt": "You are a Python instructor."},
+  {"id": "tc_050", "prompt": "Calculate 2 to the 10th power. Return ONLY the number.", "expected_output": "1024", "system_prompt": "You are a math assistant."}]
 
   
