@@ -104,7 +104,7 @@
   {"id": "tc_099", "prompt": "Explain the concept of Retrieval-Augmented Generation (RAG), detailing Document Chunking, Vector Embedding, Hybrid Search (Dense + Sparse), and Reranking.", "expected_output": "RAG enhances LLM responses by fetching relevant external knowledge context before generation.\n1. Chunking: Splits documents into semantically coherent text segments.\n2. Vector Embedding: Converts chunks into high-dimensional vector representations.\n3. Hybrid Search: Combines Dense Search (semantic vector similarity) with Sparse Search (BM25 keyword matching) for high recall.\n4. Reranking: Uses a cross-encoder model to re-score and select top-k chunks for context injection into the LLM prompt.", "system_prompt": "You are an AI solutions architect."},
   {"id": "tc_100", "prompt": "Write a Python script using standard `asyncio` and `aiohttp` (or `urllib.request`) to perform asynchronous concurrent HTTP GET requests across a list of 5 URLs with timeout handling.", "expected_output": "import asyncio\nimport urllib.request\n\nasync def fetch_url(url):\n    loop = asyncio.get_event_loop()\n    try:\n        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})\n        res = await loop.run_in_executor(None, lambda: urllib.request.urlopen(req, timeout=3).read())\n        return len(res)\n    except Exception as e:\n        return str(e)\n\nasync def main(urls):\n    tasks = [fetch_url(url) for url in urls]\n    return await asyncio.gather(*tasks)", "system_prompt": "You are an asynchronous Python developer."}
 ]
-  
+ 
 
   
 
