@@ -23,9 +23,7 @@ class ModelComparison:
             target = get_model_target(
                 cfg["provider"], cfg["model"], **cfg.get("kwargs", {})
             )
-            # A fresh EvaluationRunner per config — each gets its own
-            # metrics tracker and recorder, so results from different
-            # models never bleed into each other's aggregates.
+
             runner = EvaluationRunner(
                 target, max_concurrent=cfg.get("max_concurrent", 5)
             )
