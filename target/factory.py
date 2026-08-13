@@ -1,0 +1,24 @@
+from target.base import BaseTarget
+from target.providers import GeminiTarget, OpenAICompatibleTarget
+from config.settings import settings
+
+
+def get_model_target(provider: str, model_name: str, **overrides) -> BaseTarget:
+    provider = provider.lower().strip()
+
+    if provider == "gemini":
+        return GeminiTarget(
+            model_name=model_name,
+            api_key=overrides.get("api_key", settings.gemini_api_key),
+            **{k: v for k, v in overrides.items() if k != "api_key"},
+        )
+
+    if provider in ("openai", "openai-compatible"):
+        return OpenAICompatibleTarget(
+            model_name=model_name,
+            api_key=overrides.get("api_key", settings.openai_api_key),
+            base_url=overrides.get("base_url", settings.openai_base_url),
+            **{k: v for k, v in overrides.items() if k not in ("api_key", "base_url")},
+        )
+
+    raise ValueError(f"Unknown provider: {provider}")
