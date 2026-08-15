@@ -14,6 +14,9 @@ class Settings(BaseModel):
     max_concurrent: int = Field(
         default_factory=lambda: int(os.getenv("MAX_CONCURRENT", "5"))
     )
+    gemini_judge_model:  str = Field(
+        default_factory=lambda: os.gentev(
+
 
 
 settings = Settings()
