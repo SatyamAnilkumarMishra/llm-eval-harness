@@ -1,3 +1,10 @@
+# Entry point / CLI wiring. BUILD THIS FILE LAST.
+#
+# It has almost no logic of its own — it parses args, assembles the
+# pieces you already built (dataset, target, evaluators, runner,
+# reporter) and calls them in order. If you find yourself writing real
+# logic here, it probably belongs in one of the other modules instead.
+
 import asyncio
 import argparse
 import json

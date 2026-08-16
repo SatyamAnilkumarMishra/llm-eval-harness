@@ -1,3 +1,22 @@
+"""
+Human-facing output: a console table + a CSV export.
+
+BUILD THIS SIXTH — once results exist, this is mostly presentation
+logic. Two things worth noticing as design decisions, not boilerplate:
+
+1. Reasoning is truncated to 48 chars in the console table (full text is
+   still in the CSV/JSONL). A wide terminal table is for *scanning* many
+   results at once to spot patterns (e.g. "everything from the science
+   domain is failing") — the full reasoning belongs in the artifact you
+   actually dig into, not the summary view.
+
+2. `to_csv` JSON-encodes any dict/list field (like `usage` or
+   `metadata`) before writing, because csv.DictWriter can't serialize
+   nested structures on its own. Small thing, but a common gotcha the
+   first time you flatten structured results into a spreadsheet-friendly
+   format.
+"""
+
 import csv
 import json
 import os

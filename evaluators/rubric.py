@@ -1,3 +1,27 @@
+"""
+Weighted multi-criterion scoring.
+
+WHY THIS EXISTS: most real answers aren't right-or-wrong on one axis —
+they need to be *correct*, *complete*, and *well-formed*, and those can
+trade off against each other. A rubric lets you say "correctness matters
+3x more than formatting" and get a single blended score back.
+
+Each criterion is just a `(prediction, reference) -> bool` function —
+same shape as an evaluator's core job, just narrower. This is a good
+place to notice the recursive pattern: a rubric is basically several
+tiny evaluators combined by weighted average.
+
+FIXED BUG (from the original version of this file): `threshold` used to
+be read from `kwargs` inside `evaluate()`, but the runner never actually
+passes a `threshold` kwarg when it calls an evaluator — so it silently
+always fell back to the hardcoded default (0.8), no matter what you
+configured. The fix: `threshold` is now a constructor argument, set once
+when you build the evaluator, same pattern as LLMJudgeEvaluator. This is
+a good general lesson — config that's meant to be set once per evaluator
+instance belongs in `__init__`, not smuggled through per-call kwargs that
+nothing upstream is guaranteed to populate.
+"""
+
 from typing import List, Dict, Any, Callable
 from evaluators.base import BaseEvaluator, EvalResult
 

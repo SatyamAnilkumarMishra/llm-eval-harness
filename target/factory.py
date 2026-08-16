@@ -1,3 +1,16 @@
+"""
+Factory: turns a CLI string ("gemini", "openai") into a concrete Target
+instance, using settings as defaults but allowing per-call overrides.
+
+WHY A FACTORY (rather than just importing the class you want directly):
+`main.py` and `experiments/compare.py` both need to build targets from
+*string* provider names that come from argparse or a config dict — not
+from Python code where you could just write `GeminiTarget(...)`
+directly. This is the seam that makes `--compare` (running many model
+configs from a list of dicts) possible without a big if/elif chain
+scattered across the codebase.
+"""
+
 from target.base import BaseTarget
 from target.providers import GeminiTarget, OpenAICompatibleTarget
 from config.settings import settings
