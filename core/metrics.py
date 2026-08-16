@@ -1,3 +1,15 @@
+"""
+Aggregates per-sample results into run-level metrics.
+
+BUILD THIS LAST of the core/ files — it's the simplest, and it's much
+easier to design once you already have real `result` dicts flowing out
+of the runner to look at. Notice everything here is a `@property`
+computed on demand from `self.results`, not maintained incrementally —
+for eval-run sizes (dozens to low thousands of samples) that's simpler
+and less bug-prone than incremental running averages, and correctness
+matters more than micro-optimizing this.
+"""
+
 from typing import List, Dict, Any
 from statistics import mean
 
@@ -29,6 +41,10 @@ class MetricsTracker:
 
     @property
     def total_tokens(self) -> Dict[str, int]:
+        # Guards against None usage (e.g. a provider that didn't report
+        # token counts) rather than assuming every result has clean data —
+        # worth defending against, since not every provider/response
+        # shape guarantees usage metadata.
         prompt = 0
         completion = 0
         for r in self.results:

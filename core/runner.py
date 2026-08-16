@@ -1,3 +1,22 @@
+"""
+The runner: wires target + evaluators + dataset together and executes.
+
+BUILD THIS FIFTH — after evaluators, target, and rubric/llm_judge all
+work in isolation. This file's whole job is orchestration, not logic:
+- build the prompt for a sample
+- call the target
+- route to the right evaluator based on sample.evaluator
+- collect results and feed metrics/recorder
+
+CONCURRENCY: `asyncio.Semaphore(max_concurrent)` is the key line to
+understand here. Without it, `asyncio.gather()` would fire *all* samples'
+API calls simultaneously — fine for 4 samples, a rate-limit disaster for
+400. The semaphore caps how many `_run_single` coroutines can be inside
+the `async with self.semaphore:` block at once; everything else queues.
+This is the standard pattern for "async but polite" API usage — worth
+re-deriving yourself rather than treating as boilerplate.
+"""
+
 import asyncio
 from typing import List, Dict, Any, Optional
 from dataset.loader import EvalSample
@@ -39,6 +58,10 @@ class EvaluationRunner:
 
             response = await self.target.generate(prompt, system_prompt)
 
+            # Each sample declares which evaluator it wants (see
+            # dataset/sample_eval.json's "evaluator" field) — this is
+            # what lets one dataset mix exact_match, keyword_match, and
+            # llm_judge samples in a single run.
             evaluator = evaluators.get(sample.evaluator)
             if evaluator is None:
                 raise ValueError(
@@ -68,6 +91,8 @@ class EvaluationRunner:
             }
 
             self.metrics.add(result)
+            # Incremental save (not just buffering) — see core/recorder.py
+            # for why this matters if a run crashes partway through.
             self.recorder.save(result)
             return result
 
@@ -77,6 +102,9 @@ class EvaluationRunner:
         evaluators: Dict[str, BaseEvaluator],
         system_prompt: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
+        # All samples are scheduled up front; the semaphore inside
+        # _run_single is what actually throttles concurrency, not this
+        # gather() call itself.
         tasks = [
             self._run_single(s, evaluators, system_prompt) for s in dataset
         ]

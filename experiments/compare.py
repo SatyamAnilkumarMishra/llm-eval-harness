@@ -1,3 +1,23 @@
+"""
+Run the same dataset against multiple model/config combinations and
+print a side-by-side summary.
+
+BUILD THIS LAST — it's the payoff, not a new concept: it just loops the
+same EvaluationRunner you already built once per config. This is also
+where you'll actually *use* the harness for your RAG project — e.g.
+compare "gpt-4o-mini" vs "gemini-1.5-flash" as your generator, or
+compare two system prompts against the same retrieved contexts, and see
+which one has a higher pass rate / lower latency.
+
+NOTE ON main.py's --compare flag: as shipped, `main.py` only puts ONE
+config into `compare_configs` (with a comment saying "add more here").
+That's intentionally left as an exercise — to make comparison mode
+actually useful, either hardcode a second config, or (better, as a
+learning exercise) extend main.py to accept `--compare-config path.json`
+and load a list of `{provider, model, name, system_prompt}` dicts from
+a file instead of editing Python source each time.
+"""
+
 import asyncio
 from typing import List, Dict, Any
 from dataset.loader import DatasetLoader
@@ -23,7 +43,9 @@ class ModelComparison:
             target = get_model_target(
                 cfg["provider"], cfg["model"], **cfg.get("kwargs", {})
             )
-
+            # A fresh EvaluationRunner per config — each gets its own
+            # metrics tracker and recorder, so results from different
+            # models never bleed into each other's aggregates.
             runner = EvaluationRunner(
                 target, max_concurrent=cfg.get("max_concurrent", 5)
             )
