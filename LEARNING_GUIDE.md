@@ -25,7 +25,7 @@ before moving to the next one.
 | 13 | `ModelComparison` | `experiments/compare.py` | Same runner, looped over configs — this is where you'll compare models/prompts for your own RAG project |
 | 14 | `main.py` | `main.py` | Thin CLI wiring — no new logic, just assembly |
 
-## Two bugs that were in the original version (fixed here — go find them)
+## Two bugs that were in the original version
 
 1. **`RubricEvaluator` threshold was dead code.** It read `threshold`
    from `kwargs` inside `evaluate()`, but nothing upstream ever passed
