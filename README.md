@@ -21,10 +21,20 @@ cp .env.example .env
 # edit .env
 
 # 3. Run evaluation
-python main.py --provider gemini --model gemini-1.5-flash --dataset dataset/sample_eval.json
+# Generalised Command
+python main.py --provider <PROVIDER> --model <MODEL_NAME> --dataset dataset/sample_eval.json
+
+#Example
+python main.py --provider gemini --model gemini-flash-latest --dataset dataset/sample_eval.json
+python main.py --provider openai-compatible --model openai/gpt-oss-20b --dataset dataset/sample_eval.json
 
 # 4. Run comparison
-python main.py --compare --provider gemini --model gemini-1.5-flash
+#Generalised Command
+python main.py --compare --dataset <DATASET_PATH>
+
+#Example
+python main.py --compare --dataset dataset/sample_eval.json  
+
 ```
 
 ## RAG Workflow
